@@ -1,0 +1,14 @@
+Enumeración del problema:
+        Una importante empresa del sector automotriz requiere prototipar una aplicación web que le permita crear, leer, actualizar, eliminar y relacionar de manera clara la información de su inventario, clientes, y ventas.
+
+        ☐ Su tarea, si decide aceptarla, consiste en implementar una base de datos que almacene de manera adecuada la información contenida en un archivo de excel, para posteriormente implementar un servicio api que permita:
+        
+        ☐ Crear un cliente, vehículo o venta.
+        ☐ Actualizar datos de clientes, vehículos y ventas.
+        ☐ Leer datos de clientes, vehículos o ventas.
+        ☐ Eliminar datos de clientes, vehículos y ventas.
+        ☐ Realizar consultas cruzadas que permitan obtener información sobre qué clientes poseen qué vehículos, qué características tenían los vehículos vendidos en determinada fecha, y cuántas compras han hecho cada uno de los clientes.
+
+	☐ Una vez realizada la tarea anterior, y para completar el prototipo, será necesario implementar una vista web que permita consumir el servicio api anteriormente implementado.
+
+	☐ Una vez se termine el tiempo de la prueba, cada participante deberá subir su implementación a un repositorio público en github, y notificar por correo la dirección del repositorio.
