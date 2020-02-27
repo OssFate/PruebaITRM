@@ -23,20 +23,6 @@ namespace WebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Sales",
-                columns: table => new
-                {
-                    SaleClientId = table.Column<string>(nullable: false),
-                    SaleVehicleId = table.Column<string>(nullable: false),
-                    SaleDate = table.Column<DateTime>(nullable: false),
-                    PaidFull = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Sales", x => new { x.SaleClientId, x.SaleVehicleId });
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Vehicles",
                 columns: table => new
                 {
@@ -70,15 +56,53 @@ namespace WebApp.Migrations
                 {
                     table.PrimaryKey("PK_Vehicles", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Sales",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SaleClientId = table.Column<string>(nullable: true),
+                    SaleVehicleId = table.Column<string>(nullable: true),
+                    SaleDate = table.Column<DateTime>(nullable: false),
+                    PaidFull = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sales", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Sales_Clients_SaleClientId",
+                        column: x => x.SaleClientId,
+                        principalTable: "Clients",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Sales_Vehicles_SaleVehicleId",
+                        column: x => x.SaleVehicleId,
+                        principalTable: "Vehicles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Sales_SaleClientId",
+                table: "Sales",
+                column: "SaleClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Sales_SaleVehicleId",
+                table: "Sales",
+                column: "SaleVehicleId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Clients");
+                name: "Sales");
 
             migrationBuilder.DropTable(
-                name: "Sales");
+                name: "Clients");
 
             migrationBuilder.DropTable(
                 name: "Vehicles");

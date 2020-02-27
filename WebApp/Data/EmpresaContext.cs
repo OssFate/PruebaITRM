@@ -15,10 +15,5 @@ namespace WebApp.Data
         public DbSet<Client> Clients { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Sale> Sales { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder mb)
-        {
-            mb.Entity<Sale>().HasKey(s => new { s.SaleClientId, s.SaleVehicleId });
-        }
     }
 }

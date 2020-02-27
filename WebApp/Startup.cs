@@ -29,7 +29,7 @@ namespace WebApp
             services.AddControllersWithViews();
 
             services.AddDbContext<EmpresaContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("EmpresaContext")));
+                options.UseSqlServer(Configuration.GetConnectionString("EmpresaContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
