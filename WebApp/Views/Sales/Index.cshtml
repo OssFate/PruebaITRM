@@ -13,6 +13,12 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.SaleClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleVehicle)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.SaleDate)
             </th>
             <th>
@@ -24,6 +30,12 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleClientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleVehicleId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SaleDate)
             </td>
